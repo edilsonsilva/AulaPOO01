@@ -29,7 +29,7 @@ public class Arquivo {
 		//tentativa de execução do código
 		try {
 			fw = new FileWriter(caminho+nome);
-			fw.append(conteudo);
+			//fw.append(conteudo);
 			fw.close();
 		}
 		//tratamento de erro caso ele ocorra
