@@ -20,7 +20,7 @@ public class Corrente extends ContaBancaria implements Operacoes{
 
 
 	@Override
-	public void sacar(double valor) {
+	public String sacar(double valor) {
 		if(valor > super.saldo+limite) {
 			System.out.println("Saldo insuficiente");
 		}   
@@ -37,12 +37,13 @@ public class Corrente extends ContaBancaria implements Operacoes{
 						limite+" e você está "+(1000-limite)+" no negativo");
 	
 		}
+		return null;
 		
 	}
 
 
 	@Override
-	public void depositar(double valor) {
+	public String depositar(double valor) {
 		if(limite==1000) {
 			super.saldo += valor;
 		}
@@ -53,13 +54,14 @@ public class Corrente extends ContaBancaria implements Operacoes{
 		else {
 			limite+=valor;
 		}
+		return null;
 		
 	}
 
 
 	@Override
-	public void verificarSaldo() {
-		System.out.println("O saldo atual é "+super.saldo+"\nO Limite é "+limite);
+	public String verificarSaldo() {
+		return "O saldo atual é "+super.saldo+"\nO Limite é "+limite;
 		
 	}
 }
