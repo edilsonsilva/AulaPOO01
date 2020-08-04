@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import projeto.exemplo.sistema.classes.AtualizarProduto;
 import projeto.exemplo.sistema.classes.CadastroProduto;
 import projeto.exemplo.sistema.classes.Produtos;
 
@@ -51,7 +52,7 @@ public class TelaProduto {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 342);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -114,7 +115,33 @@ public class TelaProduto {
 		});
 		
 		
-		btnCadastrar.setBounds(294, 198, 123, 47);
+		btnCadastrar.setBounds(10, 254, 123, 47);
 		frame.getContentPane().add(btnCadastrar);
+		
+		JButton btnAtualizar = new JButton("Atualizar");
+		
+		AtualizarProduto ap = new AtualizarProduto();
+		
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int x = JOptionPane.showConfirmDialog(null, "Você deseja atualizar um produto?");
+				if(x==0) {
+					int id = Integer.parseInt(JOptionPane.showInputDialog("Informe o id do produto"));
+					prod.setId(id);
+					prod.setNome(txtNome.getText());
+					prod.setDescricao(txtDescricao.getText());
+					prod.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+					prod.setPreco(Double.parseDouble(txtPreco.getText()));
+					JOptionPane.showMessageDialog(null,ap.atualizar(prod));
+
+				}
+			}
+		});
+		
+		
+		
+		
+		btnAtualizar.setBounds(139, 254, 119, 47);
+		frame.getContentPane().add(btnAtualizar);
 	}
 }

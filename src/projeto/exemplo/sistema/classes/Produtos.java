@@ -5,6 +5,7 @@ public class Produtos {
 	private String nome;
 	private String descricao;
 	private int quantidade;
+	private double preco;
 	
 	
 	public int getId() {
@@ -37,6 +38,6 @@ public class Produtos {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	private double preco;
+	
 	
 }
